@@ -10,7 +10,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.app.dailymotivation"
+        applicationId "com.motiv8.quote"
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -58,7 +58,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'com.app.quotify'
+    namespace 'com.motiv8.quote'
 }
 
 dependencies {

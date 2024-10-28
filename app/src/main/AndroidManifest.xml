@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
 
     <application
-        android:name=".QuotesApp"
+        android:name="com.motiv8.quote.QuotesApp"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,11 +20,11 @@
         tools:targetApi="31">
 
 
-        <receiver android:name="com.app.quotify.feature_quote.presentation.notification.Notification"
+        <receiver android:name="com.motiv8.quote.feature_quote.presentation.notification.Notification"
             android:enabled="true"/>
 
         <activity
-            android:name="com.app.quotify.feature_quote.presentation.MainActivity"
+            android:name="com.motiv8.quote.feature_quote.presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Quotify">
             <intent-filter>
