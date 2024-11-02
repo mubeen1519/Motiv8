@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface QuotableApi {
     @GET("quotes/random")
     suspend fun getQuotes(
-        @Query("limit") page: Int
+        @Query("count") page: Int
     ):  List<QuotableQuote>
 }

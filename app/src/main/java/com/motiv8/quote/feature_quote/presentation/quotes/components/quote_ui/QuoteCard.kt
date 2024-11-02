@@ -17,6 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.motiv8.quote.feature_quote.domain.model.Quote
 import com.motiv8.quote.feature_quote.domain.use_cases.copyImageToClipboard
+import com.motiv8.quote.feature_quote.domain.use_cases.copyTextToClipboard
 import com.motiv8.quote.feature_quote.domain.use_cases.shareImage
 import com.motiv8.quote.feature_quote.presentation.navigation.BottomBarScreen
 import com.motiv8.quote.feature_quote.presentation.quotes.components.QuoteEvent
@@ -78,8 +79,8 @@ fun QuoteCard(
                     }
 
                     "Filled.ContentCopy" -> {
-                        copyImageToClipboard(context = context, bitmap = snapShot.invoke())
-                        displayToast(text = "Image copied to clipboard !", context = context)
+                        copyTextToClipboard(context,"${quote.quoteContent}\n Author:${quote.quoteAuthor}")
+                        displayToast(text = "Text copied to clipboard !", context = context)
                         visible = false
                     }
                 }

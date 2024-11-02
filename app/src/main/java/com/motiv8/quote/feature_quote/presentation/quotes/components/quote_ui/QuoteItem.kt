@@ -106,7 +106,7 @@ fun QuoteItem(
 
                 Spacer(
                     modifier = Modifier
-                        .height(80.dp)
+                        .height(60.dp)
                         .fillMaxWidth()
                 )
 

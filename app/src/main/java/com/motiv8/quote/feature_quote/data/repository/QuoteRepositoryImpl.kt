@@ -27,7 +27,7 @@ class QuoteRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getQuotesText(): List<QuotableQuote> {
-        val response = quotableApi.getQuotes(page = 19)
+        val response = quotableApi.getQuotes(page = 50)
         return response
     }
 

@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class QuotableQuote(
-    val content: String,
+    val quote: String,
     val author: String,
     val length : Int
 )

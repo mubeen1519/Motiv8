@@ -74,7 +74,7 @@ fun MainScreen(
 private fun MainTopBar() {
     SmallTopAppBar(
         title = {
-            Text(text = "  Quotes")
+            Text(text = "  Your Daily Inspiration 🤯")
         },
         colors = TopAppBarDefaults.smallTopAppBarColors()
     )

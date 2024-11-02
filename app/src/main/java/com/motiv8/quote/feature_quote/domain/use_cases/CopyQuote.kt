@@ -15,3 +15,9 @@ fun copyImageToClipboard(context: Context, bitmap: Bitmap) {
     val clipData: ClipData = ClipData.newUri(context.contentResolver, "", imageUri)
     clipboardManager.setPrimaryClip(clipData)
 }
+
+fun copyTextToClipboard(context: Context, text: String) {
+    val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    val clipData = ClipData.newPlainText("label", text)
+    clipboardManager.setPrimaryClip(clipData)
+}

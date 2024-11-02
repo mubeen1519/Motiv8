@@ -27,7 +27,7 @@ class GetQuotesFromApi(
                     if(pexelsApiResponseList.isNotEmpty() && quotesApiResponseList.isNotEmpty()) {
                         for (i in 0..18) {
                             val quote = Quote(
-                                quoteContent = quotesApiResponseList[i].content,
+                                quoteContent = quotesApiResponseList[i].quote,
                                 quoteAuthor = quotesApiResponseList[i].author,
                                 quoteImgUrl = pexelsApiResponseList[i].src.medium
                             )
