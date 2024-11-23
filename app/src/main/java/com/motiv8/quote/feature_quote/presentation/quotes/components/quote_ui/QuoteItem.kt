@@ -4,14 +4,28 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Share
-import androidx.compose.material3.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,8 +50,6 @@ import com.motiv8.quote.R
 import com.motiv8.quote.feature_quote.domain.model.Quote
 import com.motiv8.quote.feature_quote.presentation.navigation.BottomBarScreen
 import com.motiv8.quote.ui.theme.Shapes
-import com.motiv8.quote.ui.theme.iconColor
-import com.motiv8.quote.ui.theme.purple
 
 @ExperimentalMaterial3Api
 @Composable
@@ -66,7 +78,7 @@ fun QuoteItem(
             AsyncImage(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(500.dp)
+                    .fillMaxHeight()
                     .background(Color.Black)
                     .alpha(0.6f),
                 contentScale = ContentScale.Crop,
@@ -82,17 +94,17 @@ fun QuoteItem(
             Column(
                 modifier = Modifier
                     .padding(
-                        top = 70.dp,
-                        end = 30.dp,
-                        start = 30.dp,
-                        bottom = 25.dp
+                        top = 10.dp,
+                        end = 10.dp,
+                        start = 10.dp,
+                        bottom = 10.dp
                     ),
                 verticalArrangement = Arrangement.Center,
             ) {
 
                 Text(
                     text = quote.quoteContent.uppercase(),
-                    style = MaterialTheme.typography.headlineSmall.copy(
+                    style = MaterialTheme.typography.bodyMedium.copy(
                         fontWeight = FontWeight.Bold,
                         fontFamily = FontFamily.SansSerif,
                         shadow = Shadow(
@@ -106,7 +118,7 @@ fun QuoteItem(
 
                 Spacer(
                     modifier = Modifier
-                        .height(60.dp)
+                        .height(10.dp)
                         .fillMaxWidth()
                 )
 
@@ -123,8 +135,22 @@ fun QuoteItem(
                     color = Color.White
                 )
             }
-        }
 
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(end = 5.dp)
+                    .align(Alignment.BottomEnd),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.End
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowForward,
+                    contentDescription = "arrow forward",
+                    tint = Color.White
+                )
+            }
+        }
     }
 
 }
@@ -149,13 +175,13 @@ fun ButtonsGroup(
             .fillMaxWidth()
             .padding(top = 16.dp, bottom = 30.dp),
         horizontalArrangement = Arrangement.SpaceAround,
-    ){
-        iconsList.forEach{ icon ->
+    ) {
+        iconsList.forEach { icon ->
             GlassmorphicIcon(
                 icon = icon,
                 iconColor = Color(0x20FFFFFF),
-                iconTint = Color.White,
-                onClick = {  onClick(icon) },
+                iconTint = MaterialTheme.colorScheme.onBackground,
+                onClick = { onClick(icon) },
                 modifier = Modifier.padding(2.dp)
             )
 //            Icon(
@@ -175,6 +201,7 @@ fun ButtonsGroup(
     }
 
 }
+
 @Composable
 fun GlassmorphicContainer(
     modifier: Modifier = Modifier,
@@ -205,6 +232,7 @@ fun GlassmorphicContainer(
         content()
     }
 }
+
 @Composable
 fun GlassmorphicIcon(
     icon: ImageVector,

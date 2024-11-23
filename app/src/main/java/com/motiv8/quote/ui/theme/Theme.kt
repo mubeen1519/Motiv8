@@ -12,7 +12,10 @@ private val DarkColorPalette = darkColorScheme(
     primary = primaryColor,
     secondary = secondaryDarkColor,
     onPrimary = primaryTextColor,
-    onSecondary = secondaryTextColor, onTertiary = Color(0xff393E46)
+    onSecondary = secondaryTextColor,
+    onTertiary = Color(0xff393E46),
+    background = primaryTextColor,
+    onBackground = secondaryTextColor,
 
 )
 
@@ -20,7 +23,10 @@ private val LightColorPalette = lightColorScheme(
     primary = primaryColor,
     secondary = secondaryLightColor,
     onPrimary = primaryTextColor,
-    onSecondary = secondaryTextColor, onTertiary = Color(0xFFFFFFF6)
+    onSecondary = secondaryTextColor,
+    onTertiary = Color(0xFFFFFFF6),
+    background = secondaryTextColor,
+    onBackground = primaryTextColor
 
 )
 

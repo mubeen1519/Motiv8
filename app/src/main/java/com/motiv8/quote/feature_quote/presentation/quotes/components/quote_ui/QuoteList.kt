@@ -2,8 +2,12 @@ package com.motiv8.quote.feature_quote.presentation.quotes.components.quote_ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,8 +27,8 @@ fun QuoteList(
     screen: BottomBarScreen
 ) {
 
-    LazyColumn(
-        modifier = modifier.padding(bottom = 0.dp, start = 16.dp, end = 16.dp)
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(150.dp)
     ) {
         items(quoteList.size) { i ->
             if (quoteList.isNotEmpty()) {
@@ -33,7 +37,9 @@ fun QuoteList(
                     quoteList[i].quoteContent.isNotEmpty()
                 ) {
                     QuoteCard(
-                        modifier = Modifier.animateItemPlacement(),
+                        modifier = Modifier.animateItemPlacement()
+                            .height(250.dp)
+                            .width(300.dp),// Maintain a fixed aspect ratio (e.g., 3:2) // Inner padding for individual cards
                         Quote(
                             quoteId = quoteList[i].quoteId,
                             quoteContent = quoteList[i].quoteContent,
